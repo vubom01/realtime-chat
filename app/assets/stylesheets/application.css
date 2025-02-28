@@ -34,12 +34,12 @@ body {
 
 #room_container {
     height: 100vh;
-    margin-right: 0px !important;
+    margin-right: 0 !important;
 }
 
 #side_panel {
     height: 100vh;
-    margin-right: 0px !important;
+    margin-right: 0 !important;
     overflow-x: hidden;
     overflow-y: scroll;
     margin-bottom: 55px;
