@@ -28,3 +28,5 @@ $ Open a browser and navigate to http://localhost:3000
 $ Sign in or create a new account
 $ Join a chat room and send messages in real-time    
 ```
+
+![2025-02-28 09-51-51.gif](public/2025-02-28%2009-51-51.gif)
