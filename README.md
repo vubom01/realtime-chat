@@ -1,24 +1,30 @@
-# README
+# Demo Realtime Chat
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple real-time chat application built with Ruby on Rails, using Turbo and Redis to support real-time message transmission.
 
-Things you may want to cover:
+## Technologies
 
-* Ruby version
+```
+$ Ruby version: 3.1.0
+$ Rails version: 7.2
+$ Database: sqlite3 3.43.2
+$ Redis: Used as pub/sub to transmit messages instantly
+$ Turbo Streams: Supports real-time UI updates
+```
 
-* System dependencies
+## Running
 
-* Configuration
+```
+$ docker-compose up -d
+$ bundle install
+$ rails db:migrate
+$ rails g devise:install
+$ rails s       
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Usage
+```
+$ Open a browser and navigate to http://localhost:3000
+$ Sign in or create a new account
+$ Join a chat room and send messages in real-time    
+```

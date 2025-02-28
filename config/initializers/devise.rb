@@ -1,17 +1,5 @@
 # frozen_string_literal: true
-class TurboFailureApp < Devise::FailureApp
-  def respond
-    if request_format == :turbo_stream
-      redirect
-    else
-      super
-    end
-  end
 
-  def skip_format?
-    %w[html turbo_stream */*].include? request_format.to_s
-  end
-end
 # Assuming you have not yet modified this file, each configuration option below
 # is set to its default value. Note that some are commented out while others
 # are not: uncommented lines are intended to protect your configuration from
@@ -26,12 +14,8 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '7787409d1a209ef06899709fbed10e895acfe654dacb3f6d72e96df7270d4277abee65521e6745c2b75c8d34381ed7b19d0acd25fff888b756f08ae798d9e2bb'
-  config.parent_controller = "TurboDeviseController"
-  config.navigational_formats = ["*/*", :html, :turbo_stream]
-  config.warden do |manager|
-    manager.failure_app = TurboFailureApp
-  end
+  # config.secret_key = '81ebb4d328fcd53267aa7464db5f9daab8a82552300c1b9b3d12dae9d6818effa68cee9749b1a853584def3980fa155082d9885dab078ae7cea0e37f10ff002a'
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -40,7 +24,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
+  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -52,7 +36,7 @@ Devise.setup do |config|
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
-  require "devise/orm/active_record"
+  require 'devise/orm/active_record'
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
@@ -142,7 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '6c929dcd82c04627c18c1726e6010ed244803c67b558ff24fffee0b8615ffc5fcecb7ce9f496cc38ba186dc8dc0b6c710e54c24c14177167e94dbc5127ea0f97'
+  # config.pepper = '413cfc10602d4132399df6867a4dff7505359a4956ef63dd36fdb237aea3ed72f7249108b212a489ac3984fc2f25a067ab8b123bcbee8bce77bc6e2c7ad0cf7d'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
